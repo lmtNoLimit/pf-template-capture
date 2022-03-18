@@ -4,6 +4,7 @@ const { minifyHtml } = require("./minify-html");
 const { downloadTemplatesHtml } = require("./downloadTemplatesHtml");
 const { downloadTemplatesJson } = require("./downloadTemplatesJson");
 const { templateHandles } = require("./constant")
+const { tinifyImages } = require("./optimizer")
 
 function main() {
     inquirer
@@ -21,7 +22,7 @@ function main() {
                 ],
             },
         ])
-        .then((answers) => {
+        .then(async (answers) => {
             console.log(answers);
             switch (answers.action) {
                 case "Download Templates Thumbnail":
@@ -39,6 +40,10 @@ function main() {
                     break;
                 case "Minify Templates HTML":
                     minifyHtml("html");
+                    break;
+                case "Optimize images":
+                    await optimizeImages();
+                    await tinifyImages()
                     break;
                 default:
                     break;

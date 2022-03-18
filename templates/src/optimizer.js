@@ -15,6 +15,17 @@ module.exports.optimizeImage = async (imageName, width, quality) => {
   console.log(`1.optimized ${imageName}`)
 }
 
+module.exports.optimizeImages = async () => {
+    if (!fs.existsSync('screenshots')) {
+        return 'Directory not found'
+    }
+    const images = fs.readdirSync('screenshots')
+    for (let image of images) {
+        await optimizeImage(image, OPTIMIZE_WIDTH, OPTIMIZE_QUALITY)
+    }
+}
+
+
 // optimize specify image
 module.exports.tinifyImage = async (image) => {
   if (!fs.existsSync('optimized')) {
