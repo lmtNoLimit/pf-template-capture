@@ -1,0 +1,9 @@
+node_modules
+screenshots
+backup
+optimized
+.DS_Store
+config.js
+
+html
+json
