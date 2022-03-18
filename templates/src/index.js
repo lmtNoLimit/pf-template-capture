@@ -19,6 +19,7 @@ function main() {
                     "Download Templates HTML",
                     "Download Templates JSON",
                     "Minify Templates HTML",
+                    "Optimize Images",
                 ],
             },
         ])
