@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
-const { wsChromeEndpointUrl } = require("../config");
-const { templateHandles } = require("./constant");
+const { wsChromeEndpointUrl } = require("../../config");
+const { templateHandles } = require("../constant");
 
 module.exports.getActiveTemplates = async (handles = templateHandles) => {
     const browser = await puppeteer.connect({
@@ -33,7 +33,6 @@ module.exports.getActiveTemplates = async (handles = templateHandles) => {
                 handle: item.shopifyPage.handle,
             };
         });
-        
     }, handles);
 
     await page.close();
